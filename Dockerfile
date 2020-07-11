@@ -3,7 +3,7 @@ LABEL Maintainer="Carlos Fagiani Junior" \
       Description="Teste Apache Bench with Alpine Linux."
 
 # Install packages
-RUN apk --no-cache add apache2-utils curl
+RUN apk --no-cache add curl
 
 # Setup document root
 RUN mkdir -p /tmp/ab
@@ -21,4 +21,4 @@ COPY --chown=nobody . /tmp/ab/
 
 RUN chmod +x /tmp/ab/ab_test.sh
 
-RUN /tmp/ab/ab_test.sh
+CMD /tmp/ab/ab_test.sh
