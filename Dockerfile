@@ -9,8 +9,7 @@ RUN apk --no-cache add curl
 RUN mkdir -p /tmp/ab
 
 # Make sure files/folders needed by the processes are accessable when they run under the nobody user
-RUN chown -R nobody.nobody /tmp/ab && \
-    chown -R nobody.nobody /run
+RUN chown -R nobody.nobody /tmp/ab
 
 # Switch to use a non-root user from here on
 USER nobody
