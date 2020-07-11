@@ -20,4 +20,4 @@ COPY --chown=nobody . /tmp/ab/
 
 RUN chmod +x /tmp/ab/ab_test.sh
 
-CMD /tmp/ab/ab_test.sh
+CMD ["/bin/ash", "/tmp/ab/ab_test.sh"]

@@ -4,7 +4,7 @@ count=0
 
 while :
 do
-  curl 'https://staging.blogdobg.com.br/wp/wp-comments-post.php' \
+  curl -i \
     'authority: staging.blogdobg.com.br' \
     'cache-control: max-age=0' \
     'upgrade-insecure-requests: 1' \
@@ -19,7 +19,7 @@ do
     'referer: https://staging.blogdobg.com.br/brasil-se-aproxima-da-marca-de-260-mil-pacientes-curados-do-coronavirus/' \
     'accept-language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7' \
     'cookie: __cfduid=d2a24a5b5b2ec83e77d30c628e330f27a1593812392; _ga=GA1.3.1108300235.1593812394; _gid=GA1.3.1724068496.1593812394; _gat=1; __gads=ID=733128484a115251:T=1593812394:S=ALNI_MboUKl-E9byvd3tEZieRcvk-02_Ig' \
-  --data-raw "comment=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)&author=CarlosFagiani&email=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 5 | head -n 1)%40g.com&submit=ENVIAR&comment_post_ID=627410&comment_parent=0&akismet_comment_nonce=ef6c61d47e&_wp_unfiltered_html_comment=a3ff7a87b5&ak_js=214" \
-  --compressed
+    --data-raw "comment=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)&author=CarlosFagiani&email=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 5 | head -n 1)%40g.com&submit=ENVIAR&comment_post_ID=627410&comment_parent=0&akismet_comment_nonce=ef6c61d47e&_wp_unfiltered_html_comment=a3ff7a87b5&ak_js=214" \
+    --compressed https://staging.blogdobg.com.br/wp/wp-comments-post.php
   sleep 16
 done
